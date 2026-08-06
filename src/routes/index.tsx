@@ -102,7 +102,7 @@ function Index() {
             <p className="truncate font-serif text-base font-semibold leading-tight">
               KYC and Wallet Activation Explainer
             </p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/60">
               Redbelly DAO
             </p>
           </div>
@@ -145,7 +145,7 @@ function Index() {
         </section>
 
         <section className="py-12">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+          <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/60">
             Document preview
           </h2>
           <div className="mt-4 border border-border bg-card p-2">
@@ -158,7 +158,7 @@ function Index() {
         </section>
 
         <section className="space-y-6 pb-16">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+          <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/60">
             Full text, five sections
           </h2>
           {sections.map((s) => (
@@ -192,7 +192,7 @@ function Index() {
 
       <footer className="border-t border-border py-10">
         <div className="mx-auto max-w-5xl px-5">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/60">
             Research deliverable &middot; Redbelly DAO
           </p>
           <p className="mt-2 text-sm text-foreground/70">
