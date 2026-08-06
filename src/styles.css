@@ -142,3 +142,44 @@
     color: var(--color-foreground);
   }
 }
+
+/* Redbelly DAO verification dossier theme */
+:root {
+  --radius: 0.25rem;
+  --background: oklch(0.226 0.041 258.5);
+  --foreground: oklch(0.955 0.008 85);
+  --card: oklch(0.965 0.009 85);
+  --card-foreground: oklch(0.25 0.02 260);
+  --popover: oklch(0.965 0.009 85);
+  --popover-foreground: oklch(0.25 0.02 260);
+  --primary: oklch(0.478 0.146 27.5);
+  --primary-foreground: oklch(0.975 0.009 85);
+  --secondary: oklch(0.28 0.04 258);
+  --secondary-foreground: oklch(0.955 0.008 85);
+  --muted: oklch(0.9 0.008 85);
+  --muted-foreground: oklch(0.5 0.015 260);
+  --accent: oklch(0.478 0.146 27.5);
+  --accent-foreground: oklch(0.975 0.009 85);
+  --border: oklch(0.36 0.03 258);
+  --input: oklch(0.36 0.03 258);
+  --ring: oklch(0.478 0.146 27.5);
+  --stamp: oklch(0.478 0.146 27.5);
+  --paper-line: oklch(0.86 0.012 85);
+}
+
+@theme inline {
+  --color-stamp: var(--stamp);
+  --color-paper-line: var(--paper-line);
+  --font-serif: "Spectral", Georgia, serif;
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3 {
+    font-family: var(--font-serif);
+  }
+}
