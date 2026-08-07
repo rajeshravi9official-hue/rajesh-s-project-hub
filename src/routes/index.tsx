@@ -91,97 +91,101 @@ const sections: Section[] = [
 function Index() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
-        <div className="mx-auto flex max-w-5xl items-center gap-3 px-5 py-3">
+      <header className="sticky top-0 z-50 border-b border-hairline bg-background/95 backdrop-blur">
+        <div className="mx-auto flex max-w-[1280px] items-center gap-3 px-4 py-4 sm:px-8 lg:px-16">
           <img
             src="/task18logo.png"
             alt="Redbelly DAO task 18 mark"
-            className="h-9 w-9 shrink-0 object-contain"
+            className="h-9 w-9 shrink-0 rounded-[4px] bg-well object-contain p-1"
           />
           <div className="min-w-0">
-            <p className="truncate font-serif text-base font-semibold leading-tight">
+            <p className="truncate text-base font-semibold leading-tight">
               KYC and Wallet Activation Explainer
             </p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/60">
-              Redbelly DAO
-            </p>
+            <p className="truncate text-[13px] text-muted-foreground">Redbelly DAO</p>
           </div>
-          <span className="ml-auto hidden shrink-0 border border-stamp px-2 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-stamp sm:inline-block">
+          <span className="ml-auto hidden shrink-0 rounded-[4px] border border-border px-2.5 py-1 font-mono text-[11px] uppercase tracking-[0.16em] text-stamp-text sm:inline-block">
             Task-18
           </span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-5xl px-5">
-        <section className="border-b border-border py-14">
-          <p className="font-mono text-[11px] uppercase tracking-[0.24em] text-stamp">
+      <main className="mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-16">
+        <section className="border-b border-hairline bg-surface-lifted/60 py-16 sm:py-20">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-stamp-text">
             Research deliverable / Task-18
           </p>
-          <h1 className="mt-4 font-serif text-4xl font-bold leading-tight sm:text-5xl">
+          <h1 className="mt-5 max-w-[22ch] text-[32px] font-semibold leading-tight tracking-[-0.01em] sm:text-[48px] sm:font-bold sm:tracking-[-0.02em]">
             KYC and Wallet Activation Explainer
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/80">
+          <p className="mt-5 max-w-[68ch] text-[18px] leading-[1.55] text-secondary-foreground">
             Resolves the recurring KYC confusion in the Redbelly community by answering the 5
             questions that keep coming back, in plain language, with every claim either sourced or
             marked unconfirmed.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-9 flex flex-wrap gap-3">
             <a
               href={PDF}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-stamp bg-stamp px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-primary-foreground transition-opacity hover:opacity-85"
+              className="whitespace-nowrap rounded-[4px] bg-stamp px-5 py-2.5 text-base font-semibold text-primary-foreground transition-opacity hover:opacity-90"
             >
               Read PDF
             </a>
             <a
               href={DOCX}
               download
-              className="border border-border px-5 py-2.5 font-mono text-xs uppercase tracking-[0.18em] text-foreground transition-colors hover:border-stamp hover:text-stamp"
+              className="whitespace-nowrap rounded-[4px] border border-border px-5 py-2.5 text-base font-medium text-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
             >
               Download DOCX
             </a>
           </div>
         </section>
 
-        <section className="py-12">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/60">
+        <section className="py-14">
+          <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Document preview
           </h2>
-          <div className="mt-4 border border-border bg-card p-2">
+          <div className="mt-5 rounded-lg border border-border bg-well p-2">
             <iframe
               src={PDF}
               title="KYC and Wallet Activation Explainer PDF"
-              className="h-[760px] w-full"
+              className="h-[760px] w-full rounded-[4px]"
             />
           </div>
         </section>
 
-        <section className="space-y-6 pb-16">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.24em] text-foreground/60">
+        <section className="space-y-6 pb-20">
+          <h2 className="text-[13px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Full text, five sections
           </h2>
           {sections.map((s) => (
-            <article key={s.n} className="border border-paper-line bg-card p-6 sm:p-8">
-              <div className="flex items-baseline gap-3">
-                <span className="font-mono text-xs text-stamp">{s.n}</span>
-                <h3 className="font-serif text-2xl font-semibold text-card-foreground">
+            <article key={s.n} className="rounded-lg border border-border bg-card">
+              <div className="flex items-baseline gap-3 border-b border-hairline px-6 py-5 sm:px-8">
+                <span className="font-mono text-sm text-stamp-text">{s.n}</span>
+                <h3 className="text-[22px] font-semibold leading-snug text-card-foreground">
                   {s.heading}
                 </h3>
               </div>
-              <p className="mt-4 font-semibold leading-relaxed text-card-foreground">{s.summary}</p>
-              <p className="mt-4 leading-relaxed text-card-foreground/85">{s.detail}</p>
-              <p className="mt-5 border-t border-paper-line pt-4 text-sm italic leading-relaxed text-muted-foreground">
-                {s.source}
-              </p>
-              {s.modVerified && (
-                <p className="mt-2 font-mono text-xs font-medium tracking-wide text-stamp">
-                  {MOD_TAG}
+              <div className="px-6 py-6 sm:px-8">
+                <p className="max-w-[72ch] text-base font-semibold leading-[1.5] text-card-foreground">
+                  {s.summary}
                 </p>
-              )}
+                <p className="mt-4 max-w-[72ch] text-base leading-[1.5] text-secondary-foreground">
+                  {s.detail}
+                </p>
+                <p className="mt-6 max-w-[74ch] border-t border-hairline pt-4 text-[15px] italic leading-[1.5] text-muted-foreground">
+                  {s.source}
+                </p>
+                {s.modVerified && (
+                  <p className="mt-3 font-mono text-xs font-medium tracking-wide text-stamp-text">
+                    {MOD_TAG}
+                  </p>
+                )}
+              </div>
             </article>
           ))}
-          <p className="border-l-2 border-stamp pl-4 text-sm leading-relaxed text-foreground/70">
+          <p className="max-w-[74ch] rounded-lg border-l-2 border-stamp bg-card-nested px-5 py-4 text-base leading-[1.5] text-secondary-foreground">
             Two claims above (ten-wallet limit, approval wait time) are verified firsthand by the
             contributor and confirmed by a Redbelly moderator in Discord, but have no published
             official document. They are marked accordingly per task requirements. All other claims
@@ -190,12 +194,12 @@ function Index() {
         </section>
       </main>
 
-      <footer className="border-t border-border py-10">
-        <div className="mx-auto max-w-5xl px-5">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/60">
+      <footer className="border-t border-hairline py-12">
+        <div className="mx-auto max-w-[1280px] px-4 sm:px-8 lg:px-16">
+          <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Research deliverable &middot; Redbelly DAO
           </p>
-          <p className="mt-2 text-sm text-foreground/70">
+          <p className="mt-2 text-base text-secondary-foreground">
             Built with{" "}
             <span aria-hidden="true" className="text-stamp">
               &hearts;
@@ -205,7 +209,7 @@ function Index() {
               href="https://github.com/0xDarkSeidBull/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-stamp hover:underline"
+              className="text-stamp-text hover:underline"
             >
               0xDarkSeidBull
             </a>
@@ -215,3 +219,4 @@ function Index() {
     </div>
   );
 }
+

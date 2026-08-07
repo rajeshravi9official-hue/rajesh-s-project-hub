@@ -143,43 +143,62 @@
   }
 }
 
-/* Redbelly DAO verification dossier theme */
+/* Redbelly DAO Task Board brand kit: "Kinetic Consensus" (dark only) */
 :root {
-  --radius: 0.25rem;
-  --background: oklch(0.226 0.041 258.5);
-  --foreground: oklch(0.955 0.008 85);
-  --card: oklch(0.965 0.009 85);
-  --card-foreground: oklch(0.25 0.02 260);
-  --popover: oklch(0.965 0.009 85);
-  --popover-foreground: oklch(0.25 0.02 260);
-  --primary: oklch(0.478 0.146 27.5);
-  --primary-foreground: oklch(0.975 0.009 85);
-  --secondary: oklch(0.28 0.04 258);
-  --secondary-foreground: oklch(0.955 0.008 85);
-  --muted: oklch(0.9 0.008 85);
-  --muted-foreground: oklch(0.5 0.015 260);
-  --accent: oklch(0.478 0.146 27.5);
-  --accent-foreground: oklch(0.975 0.009 85);
-  --border: oklch(0.36 0.03 258);
-  --input: oklch(0.36 0.03 258);
-  --ring: oklch(0.478 0.146 27.5);
-  --stamp: oklch(0.478 0.146 27.5);
-  --paper-line: oklch(0.86 0.012 85);
+  --radius: 0.5rem;
+  --background: oklch(0.216 0.017 226);
+  --surface-lifted: oklch(0.238 0.017 226);
+  --foreground: oklch(0.925 0.011 234);
+  --card: oklch(0.32 0.019 227);
+  --card-foreground: oklch(0.925 0.011 234);
+  --card-nested: oklch(0.297 0.017 227);
+  --well: oklch(0.181 0.016 227);
+  --popover: oklch(0.32 0.019 227);
+  --popover-foreground: oklch(0.925 0.011 234);
+  --primary: oklch(0.664 0.183 22.5);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.297 0.017 227);
+  --secondary-foreground: oklch(0.815 0.017 232);
+  --muted: oklch(0.297 0.017 227);
+  --muted-foreground: oklch(0.699 0.018 231);
+  --accent: oklch(0.664 0.183 22.5);
+  --accent-foreground: oklch(1 0 0);
+  --border: oklch(0.406 0.019 233);
+  --hairline: oklch(0.323 0.017 231);
+  --input: oklch(0.406 0.019 233);
+  --ring: oklch(0.664 0.183 22.5);
+  --stamp: oklch(0.664 0.183 22.5);
+  --stamp-text: oklch(0.826 0.083 21);
+  --approved: oklch(0.87 0.129 154);
+  --pending: oklch(0.855 0.153 88);
+  --paper-line: oklch(0.323 0.017 231);
 }
 
 @theme inline {
+  --radius-base: 4px;
   --color-stamp: var(--stamp);
+  --color-stamp-text: var(--stamp-text);
   --color-paper-line: var(--paper-line);
-  --font-serif: "Spectral", Georgia, serif;
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-hairline: var(--hairline);
+  --color-surface-lifted: var(--surface-lifted);
+  --color-card-nested: var(--card-nested);
+  --color-well: var(--well);
+  --color-approved: var(--approved);
+  --color-pending: var(--pending);
+  --font-serif: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
 
 @layer base {
   body {
     font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.5;
   }
-  h1, h2, h3 {
-    font-family: var(--font-serif);
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    font-weight: 700;
   }
 }
+
