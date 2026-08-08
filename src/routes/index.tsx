@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const PDF = "/docs/KYC_and_Wallet_Activation_Explainer.pdf";
-const DOCX = "/docs/KYC_and_Wallet_Activation_Explainer.docx";
+const PDF =
+  "https://raw.githubusercontent.com/0xDarkSeidBull/dao-redbelly/main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.pdf";
+const DOCX =
+  "https://raw.githubusercontent.com/0xDarkSeidBull/dao-redbelly/main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.docx";
 
 export const Route = createFileRoute("/")({
   head: () => ({
