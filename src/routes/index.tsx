@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 const PDF =
-  "https://raw.githubusercontent.com/0xDarkSeidBull/dao-redbelly/main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.pdf";
+  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/dao-redbelly@main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.pdf";
 const DOCX =
-  "https://raw.githubusercontent.com/0xDarkSeidBull/dao-redbelly/main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.docx";
+  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/dao-redbelly@main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.docx";
 
 export const Route = createFileRoute("/")({
   head: () => ({
