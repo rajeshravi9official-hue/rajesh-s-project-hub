@@ -96,9 +96,11 @@ function Index() {
       <header className="sticky top-0 z-50 border-b border-hairline bg-background/95 backdrop-blur">
         <div className="mx-auto flex max-w-[1280px] items-center gap-3 px-4 py-4 sm:px-8 lg:px-16">
           <img
-            src="/task18logo.png"
-            alt="Redbelly DAO task 18 mark"
-            className="h-9 w-9 shrink-0 rounded-[4px] bg-well object-contain p-1"
+            src="/dao-logo-on-dark.png"
+            alt="Redbelly DAO"
+            width={1434}
+            height={1024}
+            className="h-9 w-auto shrink-0"
           />
           <div className="min-w-0">
             <p className="truncate text-base font-semibold leading-tight">
