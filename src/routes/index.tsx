@@ -229,6 +229,26 @@ function Index() {
               0xDarkSeidBull
             </a>
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            {[
+              { href: PDF, label: "PDF", icon: <FileText className="h-4 w-4" /> },
+              { href: DOCS, label: "DOCS", icon: <FileType2 className="h-4 w-4" /> },
+              { href: ARTICLE, label: "dev.to", icon: <PenLine className="h-4 w-4" /> },
+              { href: GITHUB, label: "GitHub", icon: <Github className="h-4 w-4" /> },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={l.label}
+                className="inline-flex items-center gap-2 rounded-[4px] border border-border px-3 py-2 text-[13px] font-medium text-secondary-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
+              >
+                {l.icon}
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
     </div>
