@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FileText, FileType2, Github, PenLine } from "lucide-react";
+import { FileText, FileType2, Github, PenLine, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const PDF = "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask18@main/task18kyc.pdf";
 const DOCS =
@@ -127,6 +128,17 @@ const sections: Section[] = [
 ];
 
 function Index() {
+  const [zoomed, setZoomed] = useState<Evidence | null>(null);
+
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (ev: KeyboardEvent) => {
+      if (ev.key === "Escape") setZoomed(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomed]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-hairline bg-background/95 backdrop-blur">
@@ -235,23 +247,32 @@ function Index() {
                 {s.evidence && (
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     {s.evidence.map((e) => (
-                      <a
+                      <div
                         key={e.href}
-                        href={e.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group block rounded-lg border border-[#27323a] bg-[#1e2a31] p-2"
+                        className="group rounded-lg border border-[#27323a] bg-[#1e2a31] p-2"
                       >
-                        <img
-                          src={e.img}
-                          alt={e.caption}
-                          loading="lazy"
-                          className="w-full max-w-[220px] rounded-[4px]"
-                        />
-                        <span className="mt-2 block font-mono text-[12px] text-[#93a4ae] transition-colors group-hover:text-[#ffb3ae]">
+                        <button
+                          type="button"
+                          onClick={() => setZoomed(e)}
+                          aria-label={`Enlarge screenshot: ${e.caption}`}
+                          className="block w-full max-w-[220px] cursor-zoom-in"
+                        >
+                          <img
+                            src={e.img}
+                            alt={e.caption}
+                            loading="lazy"
+                            className="w-full rounded-[4px]"
+                          />
+                        </button>
+                        <a
+                          href={e.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 block font-mono text-[12px] text-[#93a4ae] transition-colors hover:text-[#ffb3ae]"
+                        >
                           {e.caption}
-                        </span>
-                      </a>
+                        </a>
+                      </div>
                     ))}
                   </div>
                 )}
@@ -311,6 +332,42 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      {zoomed && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={zoomed.caption}
+          onClick={() => setZoomed(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+        >
+          <button
+            type="button"
+            onClick={() => setZoomed(null)}
+            aria-label="Close image"
+            className="absolute right-4 top-4 rounded-[4px] border border-border bg-background/80 p-2 text-foreground transition-colors hover:text-stamp-text"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <figure onClick={(ev) => ev.stopPropagation()} className="max-h-full">
+            <img
+              src={zoomed.img}
+              alt={zoomed.caption}
+              className="max-h-[80vh] w-auto max-w-[92vw] rounded-lg border border-[#27323a]"
+            />
+            <figcaption className="mt-3 text-center font-mono text-[12px] text-[#93a4ae]">
+              <a
+                href={zoomed.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-[#ffb3ae]"
+              >
+                {zoomed.caption}
+              </a>
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </div>
   );
 }
