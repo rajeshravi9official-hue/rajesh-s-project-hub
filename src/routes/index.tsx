@@ -235,23 +235,32 @@ function Index() {
                 {s.evidence && (
                   <div className="mt-5 grid gap-3 sm:grid-cols-2">
                     {s.evidence.map((e) => (
-                      <a
+                      <div
                         key={e.href}
-                        href={e.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group block rounded-lg border border-[#27323a] bg-[#1e2a31] p-2"
+                        className="group rounded-lg border border-[#27323a] bg-[#1e2a31] p-2"
                       >
-                        <img
-                          src={e.img}
-                          alt={e.caption}
-                          loading="lazy"
-                          className="w-full max-w-[220px] rounded-[4px]"
-                        />
-                        <span className="mt-2 block font-mono text-[12px] text-[#93a4ae] transition-colors group-hover:text-[#ffb3ae]">
+                        <button
+                          type="button"
+                          onClick={() => setZoomed(e)}
+                          aria-label={`Enlarge screenshot: ${e.caption}`}
+                          className="block w-full max-w-[220px] cursor-zoom-in"
+                        >
+                          <img
+                            src={e.img}
+                            alt={e.caption}
+                            loading="lazy"
+                            className="w-full rounded-[4px]"
+                          />
+                        </button>
+                        <a
+                          href={e.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-2 block font-mono text-[12px] text-[#93a4ae] transition-colors hover:text-[#ffb3ae]"
+                        >
                           {e.caption}
-                        </span>
-                      </a>
+                        </a>
+                      </div>
                     ))}
                   </div>
                 )}
