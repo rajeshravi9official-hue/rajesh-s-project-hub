@@ -230,12 +230,12 @@ function Index() {
               0xDarkSeidBull
             </a>
           </p>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
             {[
-              { href: PDF, label: "PDF", icon: <FileText className="h-4 w-4" /> },
-              { href: DOCS, label: "DOCS", icon: <FileType2 className="h-4 w-4" /> },
-              { href: ARTICLE, label: "dev.to", icon: <PenLine className="h-4 w-4" /> },
-              { href: GITHUB, label: "GitHub", icon: <Github className="h-4 w-4" /> },
+              { href: PDF, label: "PDF", icon: <FileText className="h-5 w-5" /> },
+              { href: DOCS, label: "DOCS", icon: <FileType2 className="h-5 w-5" /> },
+              { href: ARTICLE, label: "dev.to", icon: <PenLine className="h-5 w-5" /> },
+              { href: GITHUB, label: "GitHub", icon: <Github className="h-5 w-5" /> },
             ].map((l) => (
               <a
                 key={l.label}
@@ -243,7 +243,7 @@ function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={l.label}
-                className="inline-flex items-center gap-2 rounded-[4px] border border-border px-3 py-2 text-[13px] font-medium text-secondary-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
+                className="inline-flex items-center gap-2 text-[13px] font-medium text-secondary-foreground transition-colors hover:text-stamp-text"
               >
                 {l.icon}
                 {l.label}
