@@ -226,11 +226,36 @@ function Index() {
                 <p className="mt-6 max-w-[74ch] border-t border-hairline pt-4 text-[15px] italic leading-[1.5] text-muted-foreground">
                   {s.source}
                 </p>
-                {s.modVerified && (
-                  <p className="mt-3 font-mono text-xs font-medium tracking-wide text-stamp-text">
-                    {MOD_TAG}
+                {s.unconfirmed && (
+                  <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-pending/40 bg-pending/10 px-3 py-1 font-mono text-[11px] font-medium tracking-wide text-pending">
+                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-pending" />
+                    {UNCONFIRMED_LABEL}
                   </p>
                 )}
+                {s.evidence && (
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {s.evidence.map((e) => (
+                      <a
+                        key={e.href}
+                        href={e.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block rounded-lg border border-[#27323a] bg-[#1e2a31] p-2"
+                      >
+                        <img
+                          src={e.img}
+                          alt={e.caption}
+                          loading="lazy"
+                          className="w-full max-w-[220px] rounded-[4px]"
+                        />
+                        <span className="mt-2 block font-mono text-[12px] text-[#93a4ae] transition-colors group-hover:text-[#ffb3ae]">
+                          {e.caption}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+
               </div>
             </article>
           ))}
