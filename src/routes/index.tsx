@@ -28,7 +28,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const MOD_TAG = "[MOD-VERIFIED, DISCORD - NO PUBLISHED DOC]";
+const UNCONFIRMED_LABEL = "COMMUNITY-REPORTED, UNCONFIRMED, NO PUBLISHED SOURCE";
+
+type Evidence = {
+  img: string;
+  href: string;
+  caption: string;
+};
 
 type Section = {
   n: string;
@@ -36,8 +42,10 @@ type Section = {
   summary: string;
   detail: React.ReactNode;
   source: string;
-  modVerified?: boolean;
+  unconfirmed?: boolean;
+  evidence?: Evidence[];
 };
+
 
 const sections: Section[] = [
   {
@@ -58,8 +66,20 @@ const sections: Section[] = [
     detail:
       "The limit applies per person, not per wallet, so completing KYC once covers up to 10 separate wallet addresses under that identity. A wallet requesting activation beyond the tenth is not accepted against an already-maxed identity.",
     source:
-      "Source: verified firsthand by the contributor, who registered 10 wallets under one identity, and confirmed by a Redbelly moderator in the Discord support channel.",
-    modVerified: true,
+      "Source: reported by the contributor, who states they registered 10 wallets under one identity, with informal corroboration from a Redbelly moderator in the Discord support channel. No screenshot or message link is attached to verify this.",
+    unconfirmed: true,
+    evidence: [
+      {
+        img: "/evidence/discord-wallet-limit-appie.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1318698971429998594",
+        caption: "Appie, Redbelly moderator · view on Discord ↗",
+      },
+      {
+        img: "/evidence/discord-wallet-limit-daniel.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1384913117632401469",
+        caption: "Daniel Bressoud, Redbelly moderator · view on Discord ↗",
+      },
+    ],
   },
   {
     n: "03",
@@ -68,9 +88,22 @@ const sections: Section[] = [
     detail:
       "This is the typical turnaround reported for a standard individual submission through the Redbelly Access portal. Submissions that need manual review, such as flagged documents or edge-case jurisdictions, can take longer than this range.",
     source:
-      "Source: verified firsthand by the contributor and confirmed by a Redbelly moderator in the Discord support channel.",
-    modVerified: true,
+      "Source: reported by the contributor, with informal corroboration from a Redbelly moderator in the Discord support channel. No screenshot or message link is attached to verify this.",
+    unconfirmed: true,
+    evidence: [
+      {
+        img: "/evidence/discord-approval-time-daniel.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1251896050780868630",
+        caption: "Daniel Bressoud, Redbelly moderator · view on Discord ↗",
+      },
+      {
+        img: "/evidence/discord-approval-time-appie.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1438389387829317755",
+        caption: "Appie, Redbelly moderator · view on Discord ↗",
+      },
+    ],
   },
+
   {
     n: "04",
     heading: "Regional restrictions",
@@ -193,19 +226,44 @@ function Index() {
                 <p className="mt-6 max-w-[74ch] border-t border-hairline pt-4 text-[15px] italic leading-[1.5] text-muted-foreground">
                   {s.source}
                 </p>
-                {s.modVerified && (
-                  <p className="mt-3 font-mono text-xs font-medium tracking-wide text-stamp-text">
-                    {MOD_TAG}
+                {s.unconfirmed && (
+                  <p className="mt-3 inline-flex items-center gap-2 rounded-full border border-pending/40 bg-pending/10 px-3 py-1 font-mono text-[11px] font-medium tracking-wide text-pending">
+                    <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-pending" />
+                    {UNCONFIRMED_LABEL}
                   </p>
                 )}
+                {s.evidence && (
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {s.evidence.map((e) => (
+                      <a
+                        key={e.href}
+                        href={e.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group block rounded-lg border border-[#27323a] bg-[#1e2a31] p-2"
+                      >
+                        <img
+                          src={e.img}
+                          alt={e.caption}
+                          loading="lazy"
+                          className="w-full max-w-[220px] rounded-[4px]"
+                        />
+                        <span className="mt-2 block font-mono text-[12px] text-[#93a4ae] transition-colors group-hover:text-[#ffb3ae]">
+                          {e.caption}
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+
               </div>
             </article>
           ))}
           <p className="max-w-[74ch] rounded-lg border-l-2 border-stamp bg-card-nested px-5 py-4 text-base leading-[1.5] text-secondary-foreground">
-            Two claims above (ten-wallet limit, approval wait time) are verified firsthand by the
-            contributor and confirmed by a Redbelly moderator in Discord, but have no published
-            official document. They are marked accordingly per task requirements. All other claims
-            are cited to an official Redbelly source.
+            Two claims above (ten-wallet limit, approval wait time) are community-reported with
+            informal moderator corroboration in Discord and no published official source. They are
+            marked as unconfirmed. All other claims are cited to an official Redbelly source.
+
           </p>
         </section>
       </main>
