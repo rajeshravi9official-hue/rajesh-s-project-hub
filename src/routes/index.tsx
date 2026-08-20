@@ -1,9 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FileText, FileType2, Github, PenLine } from "lucide-react";
 
-const PDF =
-  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/dao-redbelly@main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.pdf";
-const DOCX =
-  "https://raw.githubusercontent.com/0xDarkSeidBull/dao-redbelly/main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.docx";
+const PDF = "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask18@main/task18.pdf";
+const DOCS =
+  "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/0xDarkSeidBull/daotask18/main/task18.docx&embedded=true";
+const ARTICLE =
+  "https://dev.to/0xdarkseidbull/resolving-kyc-confusion-for-redbelly-network-1nld";
+const GITHUB = "https://github.com/0xDarkSeidBull/daotask18";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -137,11 +140,20 @@ function Index() {
               Read PDF
             </a>
             <a
-              href={DOCX}
-              download
+              href={DOCS}
+              target="_blank"
+              rel="noopener noreferrer"
               className="whitespace-nowrap rounded-[4px] border border-border px-5 py-2.5 text-base font-medium text-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
             >
-              Download DOCX
+              Read DOCS
+            </a>
+            <a
+              href={ARTICLE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap rounded-[4px] border border-border px-5 py-2.5 text-base font-medium text-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
+            >
+              Read Article
             </a>
           </div>
         </section>
@@ -218,6 +230,26 @@ function Index() {
               0xDarkSeidBull
             </a>
           </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            {[
+              { href: PDF, label: "PDF", icon: <FileText className="h-4 w-4" /> },
+              { href: DOCS, label: "DOCS", icon: <FileType2 className="h-4 w-4" /> },
+              { href: ARTICLE, label: "dev.to", icon: <PenLine className="h-4 w-4" /> },
+              { href: GITHUB, label: "GitHub", icon: <Github className="h-4 w-4" /> },
+            ].map((l) => (
+              <a
+                key={l.label}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={l.label}
+                className="inline-flex items-center gap-2 rounded-[4px] border border-border px-3 py-2 text-[13px] font-medium text-secondary-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
+              >
+                {l.icon}
+                {l.label}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
     </div>
