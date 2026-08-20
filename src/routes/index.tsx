@@ -139,11 +139,20 @@ function Index() {
               Read PDF
             </a>
             <a
-              href={DOCX}
-              download
+              href={DOCS}
+              target="_blank"
+              rel="noopener noreferrer"
               className="whitespace-nowrap rounded-[4px] border border-border px-5 py-2.5 text-base font-medium text-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
             >
-              Download DOCX
+              Read DOCS
+            </a>
+            <a
+              href={ARTICLE}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="whitespace-nowrap rounded-[4px] border border-border px-5 py-2.5 text-base font-medium text-foreground transition-colors hover:border-stamp-text hover:text-stamp-text"
+            >
+              Read Article
             </a>
           </div>
         </section>
