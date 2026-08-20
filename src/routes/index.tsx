@@ -28,7 +28,13 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const MOD_TAG = "[MOD-VERIFIED, DISCORD - NO PUBLISHED DOC]";
+const UNCONFIRMED_LABEL = "COMMUNITY-REPORTED, UNCONFIRMED, NO PUBLISHED SOURCE";
+
+type Evidence = {
+  img: string;
+  href: string;
+  caption: string;
+};
 
 type Section = {
   n: string;
@@ -36,8 +42,10 @@ type Section = {
   summary: string;
   detail: React.ReactNode;
   source: string;
-  modVerified?: boolean;
+  unconfirmed?: boolean;
+  evidence?: Evidence[];
 };
+
 
 const sections: Section[] = [
   {
