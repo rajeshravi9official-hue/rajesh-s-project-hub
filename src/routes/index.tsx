@@ -260,10 +260,10 @@ function Index() {
             </article>
           ))}
           <p className="max-w-[74ch] rounded-lg border-l-2 border-stamp bg-card-nested px-5 py-4 text-base leading-[1.5] text-secondary-foreground">
-            Two claims above (ten-wallet limit, approval wait time) are verified firsthand by the
-            contributor and confirmed by a Redbelly moderator in Discord, but have no published
-            official document. They are marked accordingly per task requirements. All other claims
-            are cited to an official Redbelly source.
+            Two claims above (ten-wallet limit, approval wait time) are community-reported with
+            informal moderator corroboration in Discord and no published official source. They are
+            marked as unconfirmed. All other claims are cited to an official Redbelly source.
+
           </p>
         </section>
       </main>
