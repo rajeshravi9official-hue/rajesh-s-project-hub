@@ -332,6 +332,42 @@ function Index() {
           </div>
         </div>
       </footer>
+
+      {zoomed && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={zoomed.caption}
+          onClick={() => setZoomed(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+        >
+          <button
+            type="button"
+            onClick={() => setZoomed(null)}
+            aria-label="Close image"
+            className="absolute right-4 top-4 rounded-[4px] border border-border bg-background/80 p-2 text-foreground transition-colors hover:text-stamp-text"
+          >
+            <X className="h-5 w-5" />
+          </button>
+          <figure onClick={(ev) => ev.stopPropagation()} className="max-h-full">
+            <img
+              src={zoomed.img}
+              alt={zoomed.caption}
+              className="max-h-[80vh] w-auto max-w-[92vw] rounded-lg border border-[#27323a]"
+            />
+            <figcaption className="mt-3 text-center font-mono text-[12px] text-[#93a4ae]">
+              <a
+                href={zoomed.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-[#ffb3ae]"
+              >
+                {zoomed.caption}
+              </a>
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </div>
   );
 }
