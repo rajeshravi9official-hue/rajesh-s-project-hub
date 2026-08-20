@@ -66,8 +66,20 @@ const sections: Section[] = [
     detail:
       "The limit applies per person, not per wallet, so completing KYC once covers up to 10 separate wallet addresses under that identity. A wallet requesting activation beyond the tenth is not accepted against an already-maxed identity.",
     source:
-      "Source: verified firsthand by the contributor, who registered 10 wallets under one identity, and confirmed by a Redbelly moderator in the Discord support channel.",
-    modVerified: true,
+      "Source: reported by the contributor, who states they registered 10 wallets under one identity, with informal corroboration from a Redbelly moderator in the Discord support channel. No screenshot or message link is attached to verify this.",
+    unconfirmed: true,
+    evidence: [
+      {
+        img: "/evidence/discord-wallet-limit-appie.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1318698971429998594",
+        caption: "Appie, Redbelly moderator · view on Discord ↗",
+      },
+      {
+        img: "/evidence/discord-wallet-limit-daniel.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1384913117632401469",
+        caption: "Daniel Bressoud, Redbelly moderator · view on Discord ↗",
+      },
+    ],
   },
   {
     n: "03",
@@ -76,9 +88,22 @@ const sections: Section[] = [
     detail:
       "This is the typical turnaround reported for a standard individual submission through the Redbelly Access portal. Submissions that need manual review, such as flagged documents or edge-case jurisdictions, can take longer than this range.",
     source:
-      "Source: verified firsthand by the contributor and confirmed by a Redbelly moderator in the Discord support channel.",
-    modVerified: true,
+      "Source: reported by the contributor, with informal corroboration from a Redbelly moderator in the Discord support channel. No screenshot or message link is attached to verify this.",
+    unconfirmed: true,
+    evidence: [
+      {
+        img: "/evidence/discord-approval-time-daniel.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1251896050780868630",
+        caption: "Daniel Bressoud, Redbelly moderator · view on Discord ↗",
+      },
+      {
+        img: "/evidence/discord-approval-time-appie.png",
+        href: "https://discord.com/channels/969088176322908160/969088176515854343/1438389387829317755",
+        caption: "Appie, Redbelly moderator · view on Discord ↗",
+      },
+    ],
   },
+
   {
     n: "04",
     heading: "Regional restrictions",
