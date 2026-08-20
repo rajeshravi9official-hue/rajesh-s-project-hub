@@ -128,6 +128,17 @@ const sections: Section[] = [
 ];
 
 function Index() {
+  const [zoomed, setZoomed] = useState<Evidence | null>(null);
+
+  useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (ev: KeyboardEvent) => {
+      if (ev.key === "Escape") setZoomed(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomed]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-50 border-b border-hairline bg-background/95 backdrop-blur">
