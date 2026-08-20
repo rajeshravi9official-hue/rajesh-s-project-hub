@@ -84,7 +84,7 @@ const sections: Section[] = [
   {
     n: "03",
     heading: "Typical approval wait time",
-    summary: "Most KYC submissions are approved in few minutes.",
+    summary: "Most KYC submissions are approved in about 3 to 5 minutes.",
     detail:
       "This is the typical turnaround reported for a standard individual submission through the Redbelly Access portal. Submissions that need manual review, such as flagged documents or edge-case jurisdictions, can take longer than this range.",
     source:
