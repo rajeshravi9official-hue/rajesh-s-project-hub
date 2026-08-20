@@ -54,9 +54,9 @@ const sections: Section[] = [
     summary:
       "KYC is required for native RBNT and mainnet activity. It is not required to hold or trade wrapped RBNT on other chains.",
     detail:
-      "Redbelly Network gates access to its own Layer 1 (mainnet transactions, staking, governance) behind identity verification through the Redbelly Access portal. Wrapped RBNT on Ethereum or other chains is a standard ERC-20 token with no Redbelly-side identity check, so buying, holding, or swapping it on an external DEX does not require Redbelly KYC.",
+      "Redbelly Network gates access to its own Layer 1 (mainnet transactions, staking, governance) behind identity verification through the Redbelly Access portal. Wrapped RBNT on Ethereum is a standard ERC-20 token with no Redbelly-side identity check, so buying, holding, or swapping it there does not require Redbelly KYC. The same principle should extend to wrapped RBNT on other chains, since any token living outside Redbelly's own chain sits outside its identity layer by definition, but the exact token standard on each additional chain (ERC-20, SPL, or otherwise) has not been individually verified here and should not be assumed uniform.",
     source:
-      "Source: Redbelly Individual Onboarding SDK overview, docs.redbelly.network. Wrapped-token distinction inferred from wrapped RBNT operating as a standard ERC-20 outside Redbelly's identity layer.",
+      "Source: Redbelly Individual Onboarding SDK overview, docs.redbelly.network. Wrapped-token distinction inferred from Ethereum wRBNT operating as a standard ERC-20 outside Redbelly's identity layer; the same outside-the-identity-layer logic is assumed, not separately verified, for wrapped RBNT on other chains.",
   },
   {
     n: "02",
