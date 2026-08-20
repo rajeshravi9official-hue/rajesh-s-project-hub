@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { FileText, FileType2, Github, PenLine } from "lucide-react";
 
 const PDF = "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask18@main/task18.pdf";
 const DOCS =
