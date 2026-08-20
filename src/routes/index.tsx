@@ -1,9 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-const PDF =
-  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/dao-redbelly@main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.pdf";
-const DOCX =
-  "https://raw.githubusercontent.com/0xDarkSeidBull/dao-redbelly/main/task18-kyc-explainer/KYC_and_Wallet_Activation_Explainer_BrandKit.docx";
+const PDF = "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask18@main/task18.pdf";
+const DOCS =
+  "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/0xDarkSeidBull/daotask18/main/task18.docx&embedded=true";
+const ARTICLE =
+  "https://dev.to/0xdarkseidbull/resolving-kyc-confusion-for-redbelly-network-1nld";
+const GITHUB = "https://github.com/0xDarkSeidBull/daotask18";
 
 export const Route = createFileRoute("/")({
   head: () => ({
