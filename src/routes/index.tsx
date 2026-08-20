@@ -84,7 +84,7 @@ const sections: Section[] = [
   {
     n: "03",
     heading: "Typical approval wait time",
-    summary: "Most KYC submissions are approved in about 3 to 5 minutes.",
+    summary: "Most KYC submissions are approved in few minutes.",
     detail:
       "This is the typical turnaround reported for a standard individual submission through the Redbelly Access portal. Submissions that need manual review, such as flagged documents or edge-case jurisdictions, can take longer than this range.",
     source:
@@ -110,7 +110,7 @@ const sections: Section[] = [
     summary:
       "Eighteen jurisdictions are currently restricted from accessing the Redbelly Network platform. This list has not been confirmed as reduced from a prior version.",
     detail:
-      "Redbelly's own Terms and Conditions state the platform is not offered to residents or tax residents of: Afghanistan, Central African Republic, North Korea, Democratic Republic of the Congo, Guinea-Bissau, Iran, Iraq, Lebanon, Libya, Myanmar, Russia, Somalia, South Sudan, Sudan, Syria, Ukraine, Yemen, and Zimbabwe. Anyone outside this list can proceed with KYC and mainnet access; anyone inside it cannot, regardless of wallet or exchange used.",
+      "Redbelly's own Terms and Conditions state the platform is not offered to residents or tax residents of: Afghanistan, Central African Republic, North Korea, Democratic Republic of the Congo, Guinea-Bissau, Iran, Iraq, Lebanon, Libya, Myanmar, Russia, Somalia, South Sudan, Sudan, Syria, Ukraine, Yemen, and Zimbabwe. Residents or tax residents of any jurisdiction on this list cannot proceed with KYC or mainnet access, regardless of wallet or exchange used. The Terms name only these excluded jurisdictions; they do not separately state that residency outside this list guarantees KYC approval.",
     source:
       "Source: Redbelly Network Terms and Conditions, Clause 15, redbelly.network/terms-and-conditions. Note: this document reflects currently restricted jurisdictions. No official record of a prior, larger restricted list was found, so the claim that restrictions have been reduced is not confirmed and is not repeated here as fact.",
   },
@@ -118,11 +118,11 @@ const sections: Section[] = [
     n: "05",
     heading: "KYC as a prerequisite for staking",
     summary:
-      "Staking RBNT requires completed KYC, because staking is a mainnet action gated by the same identity layer as any other native transaction.",
+      "Staking RBNT requires completed KYC, because staking is a write action on Redbelly's own chain, gated by the same access-credential requirement as any other mainnet transaction.",
     detail:
-      "Redbelly's whitepaper lists staking as one of RBNT's core token uses, alongside gas, governance, sharding, and incentives, all of which run on Redbelly's own chain rather than a wrapped external token. Since mainnet access itself requires identity verification, a wallet cannot stake without first completing KYC.",
+      "Redbelly's developer portal states that before a user is granted access to the network, they must claim an access credential, proved with a photo identity document and biometric checks, before they can self-enable write access to the network through a specific network smart contract. Staking works by calling the deposit function on Redbelly's staking contract, which is exactly this kind of write action, so it falls under the same access-credential requirement. The whitepaper separately confirms staking as a core RBNT utility on Redbelly's own chain, not a wrapped external token.",
     source:
-      "Source: Redbelly Network whitepaper, redbelly.network/whitepaper. KYC-gating inferred from the same mainnet-access requirement covered in Section 1.",
+      "Source: Redbelly Network developer portal, User access and Staking pages, vine.redbelly.network/identity/user-access and vine.redbelly.network/nodes/staking; and Redbelly Network whitepaper, redbelly.network/whitepaper.",
   },
 ];
 
@@ -260,10 +260,11 @@ function Index() {
             </article>
           ))}
           <p className="max-w-[74ch] rounded-lg border-l-2 border-stamp bg-card-nested px-5 py-4 text-base leading-[1.5] text-secondary-foreground">
-            Two claims above (ten-wallet limit, approval wait time) are community-reported with
-            informal moderator corroboration in Discord and no published official source. They are
-            marked as unconfirmed. All other claims are cited to an official Redbelly source.
-
+            Two claims above (ten-wallet limit, approval wait time) are reported firsthand by the
+            contributor, with informal corroboration from a Redbelly moderator in Discord, but no
+            published official document and no screenshot or message link on file. They are marked
+            community-reported and unconfirmed per task requirements. All other claims are cited to
+            an official Redbelly source.
           </p>
         </section>
       </main>
