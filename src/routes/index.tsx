@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FileText, FileType2, Github, PenLine, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const PDF =
@@ -296,12 +296,50 @@ function Index() {
           <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Research deliverable &middot; Redbelly DAO
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
             {[
-              { href: PDF, label: "PDF", icon: <FileText className="h-5 w-5" /> },
-              { href: DOCS, label: "DOCS", icon: <FileType2 className="h-5 w-5" /> },
-              { href: ARTICLE, label: "dev.to", icon: <PenLine className="h-5 w-5" /> },
-              { href: GITHUB, label: "GitHub", icon: <Github className="h-5 w-5" /> },
+              {
+                href: PDF,
+                label: "PDF",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                    <polyline points="13 2 13 9 20 9" />
+                    <path d="M9 13h2a2 2 0 0 1 0 4H9v-4z" />
+                    <path d="M9 17h4" />
+                  </svg>
+                ),
+              },
+              {
+                href: DOCS,
+                label: "DOCS",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="8" y1="13" x2="16" y2="13" />
+                    <line x1="8" y1="17" x2="13" y2="17" />
+                  </svg>
+                ),
+              },
+              {
+                href: ARTICLE,
+                label: "dev.to",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                    <path d="M7.42 10.05 8.65 9.8c.2-.05.43.05.52.25l.74 1.74v-1.64c0-.22.18-.4.4-.4h1.6c.22 0 .4.18.4.4v5.2c0 .22-.18.4-.4.4h-1.6a.4.4 0 0 1-.4-.4v-1.64l-.74 1.74c-.1.2-.32.3-.52.25l-1.23-.25a.4.4 0 0 1-.3-.49l1.27-3.93a.4.4 0 0 1 .43-.3zm8.58-.65h1.6c.22 0 .4.18.4.4v5.2c0 .22-.18.4-.4.4h-1.6a.4.4 0 0 1-.4-.4v-5.2c0-.22.18-.4.4-.4zm-4 0h1.6c.22 0 .4.18.4.4v.8c0 .22-.18.4-.4.4h-1.6a.4.4 0 0 1-.4-.4v-.8c0-.22.18-.4.4-.4zm0 2.4h1.6c.22 0 .4.18.4.4v2.8c0 .22-.18.4-.4.4h-1.6a.4.4 0 0 1-.4-.4v-2.8c0-.22.18-.4.4-.4z" />
+                  </svg>
+                ),
+              },
+              {
+                href: GITHUB,
+                label: "GitHub",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.419-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.218.694.821.576 4.765-1.589 8.199-6.084 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                ),
+              },
             ].map((l) => (
               <a
                 key={l.label}
@@ -309,10 +347,9 @@ function Index() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={l.label}
-                className="inline-flex items-center gap-2 text-[13px] font-medium text-secondary-foreground transition-colors hover:text-stamp-text"
+                className="text-secondary-foreground transition-colors hover:text-stamp-text"
               >
                 {l.icon}
-                {l.label}
               </a>
             ))}
           </div>
