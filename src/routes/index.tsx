@@ -296,21 +296,6 @@ function Index() {
           <p className="text-[13px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             Research deliverable &middot; Redbelly DAO
           </p>
-          <p className="mt-2 text-base text-secondary-foreground">
-            Built with{" "}
-            <span aria-hidden="true" className="text-stamp">
-              &hearts;
-            </span>{" "}
-            by{" "}
-            <a
-              href="https://github.com/0xDarkSeidBull/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-stamp-text hover:underline"
-            >
-              0xDarkSeidBull
-            </a>
-          </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-8">
             {[
               { href: PDF, label: "PDF", icon: <FileText className="h-5 w-5" /> },
