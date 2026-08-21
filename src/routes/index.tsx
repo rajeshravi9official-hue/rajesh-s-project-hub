@@ -2,9 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { FileText, FileType2, Github, PenLine, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const PDF = "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask18@main/task18kyc.pdf";
+const PDF =
+  "https://cdn.jsdelivr.net/gh/0xDarkSeidBull/daotask18@main/KYC_and_Wallet_Activation_Explainer_BrandKit.pdf";
 const DOCS =
-  "https://docs.google.com/viewer?url=https://raw.githubusercontent.com/0xDarkSeidBull/daotask18/main/task18.docx&embedded=true";
+  "https://docs.google.com/gview?url=https://raw.githubusercontent.com/0xDarkSeidBull/daotask18/main/KYC_and_Wallet_Activation_Explainer_BrandKit.docx&embedded=true";
 const ARTICLE =
   "https://dev.to/0xdarkseidbull/resolving-kyc-confusion-for-redbelly-network-1nld";
 const GITHUB = "https://github.com/0xDarkSeidBull/daotask18";
@@ -55,9 +56,9 @@ const sections: Section[] = [
     summary:
       "KYC is required for native RBNT and mainnet activity. It is not required to hold or trade wrapped RBNT on other chains.",
     detail:
-      "Redbelly Network gates access to its own Layer 1 (mainnet transactions, staking, governance) behind identity verification through the Redbelly Access portal. Wrapped RBNT on Ethereum is a standard ERC-20 token with no Redbelly-side identity check, so buying, holding, or swapping it there does not require Redbelly KYC. The same principle should extend to wrapped RBNT on other chains, since any token living outside Redbelly's own chain sits outside its identity layer by definition, but the exact token standard on each additional chain (ERC-20, SPL, or otherwise) has not been individually verified here and should not be assumed uniform.",
+      "Redbelly Network gates access to its own Layer 1, mainnet transactions, staking, governance, behind identity verification through the Redbelly Access portal, and the onboarding documentation scopes this specifically to Redbelly's own chain. Wrapped RBNT already exists on multiple external chains: Ethereum (ERC-20) and Solana (SPL, bridged via Router Protocol's Nitro), both confirmed through Redbelly Network's own official channels. Any token living outside Redbelly's own chain sits outside that stated scope by definition, so buying, holding, or swapping it on an external DEX needs no Redbelly-side verification. The token standard on any chain beyond these two confirmed deployments has not been checked here and should not be assumed.",
     source:
-      "Source: Redbelly Individual Onboarding SDK overview, docs.redbelly.network. Wrapped-token distinction inferred from Ethereum wRBNT operating as a standard ERC-20 outside Redbelly's identity layer; the same outside-the-identity-layer logic is assumed, not separately verified, for wrapped RBNT on other chains.",
+      "Source: Redbelly Individual Onboarding SDK overview, docs.redbelly.network, for the mainnet-only scope of the identity layer. Ethereum wRBNT (ERC-20) and Solana wRBNT (SPL) confirmed via Redbelly Network's official X account (x.com/RedbellyNetwork). No chains beyond these two were checked.",
   },
   {
     n: "02",
@@ -67,7 +68,7 @@ const sections: Section[] = [
     detail:
       "The limit applies per person, not per wallet, so completing KYC once covers up to 10 separate wallet addresses under that identity. A wallet requesting activation beyond the tenth is not accepted against an already-maxed identity.",
     source:
-      "Source: reported by the contributor, who states they registered 10 wallets under one identity, with informal corroboration from a Redbelly moderator in the Discord support channel. No screenshot or message link is attached to verify this.",
+      "Source: reported by the contributor, who registered 10 wallets under one identity, with corroboration from two Redbelly moderators, Appie and Daniel Bressoud, in the Discord support channel.",
     unconfirmed: true,
     evidence: [
       {
@@ -85,11 +86,11 @@ const sections: Section[] = [
   {
     n: "03",
     heading: "Typical approval wait time",
-    summary: "Most KYC submissions are approved in about 3 to 5 minutes.",
+    summary: "Community members report that KYC approval typically takes about 3 to 5 minutes.",
     detail:
-      "This is the typical turnaround reported for a standard individual submission through the Redbelly Access portal. Submissions that need manual review, such as flagged documents or edge-case jurisdictions, can take longer than this range.",
+      "This estimate reflects turnaround reported by community members for a standard individual submission through the Redbelly Access portal, not a figure published by Redbelly itself. Submissions that need manual review, such as flagged documents or edge-case jurisdictions, can take longer than this range.",
     source:
-      "Source: reported by the contributor, with informal corroboration from a Redbelly moderator in the Discord support channel. No screenshot or message link is attached to verify this.",
+      "Source: reported by the contributor, with corroboration from two Redbelly moderators, Daniel Bressoud and Appie, in the Discord support channel.",
     unconfirmed: true,
     evidence: [
       {
@@ -282,10 +283,10 @@ function Index() {
           ))}
           <p className="max-w-[74ch] rounded-lg border-l-2 border-stamp bg-card-nested px-5 py-4 text-base leading-[1.5] text-secondary-foreground">
             Two claims above (ten-wallet limit, approval wait time) are reported firsthand by the
-            contributor, with informal corroboration from a Redbelly moderator in Discord, but no
-            published official document and no screenshot or message link on file. They are marked
-            community-reported and unconfirmed per task requirements. All other claims are cited to
-            an official Redbelly source.
+            contributor, with corroboration from two Redbelly moderators in Discord, but no
+            published official document. Screenshots and direct message links for both moderators
+            are included with each claim. They are marked community-reported and unconfirmed per
+            task requirements. All other claims are cited to an official Redbelly source.
           </p>
         </section>
       </main>
